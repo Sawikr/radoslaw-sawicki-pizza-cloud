@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Aplikacja Pizza Cloud</title>
+  </head>
+  
+  <body>
+    <h1>Witaj w naszej pizzerii!</h1>
+    <img th:src="@{/images/Pizza.png}"/>
+    <form method="POST" th:action="@{/logout}" id="logoutForm">
+      <input type="submit" value="Wyloguj się"/>
+    </form>
+    
+    <a th:href="@{/design}" id="design">Przygotuj pizzę</a>
+  </body>
+</html>

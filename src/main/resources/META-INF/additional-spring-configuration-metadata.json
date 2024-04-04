@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "pizza.orders.page-size",
+      "type": "java.lang.String",
+      "description": "Określa maksymalną liczbę zamówień wyświetlanych na liście."
+    },
+    {
+      "name": "pizza.discount.codes",
+      "type": "java.util.Map<String, Integer>",
+      "description": "Mapowanie kodów rabatowych."
+    },
+    {
+      "name": "pizza.orders.pageSize",
+      "type": "java.lang.String",
+      "description": "Description for pizza.orders.pageSize."
+    },
+    {
+      "name": "pizza.discount.codes.abcdef",
+      "type": "java.lang.String",
+      "description": "Description for pizza.discount.codes.abcdef."
+    }
+  ]}
