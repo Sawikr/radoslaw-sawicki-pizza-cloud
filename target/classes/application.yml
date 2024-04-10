@@ -24,6 +24,24 @@ spring:
   h2:
     console.enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: threaddump,heapdump
+
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  git:
+    mode: full
+
+  #application-description: Aplikacja Pizza Cloud
+  #application-version: 0.0.5-SNAPSHOT
+
 ---
 spring:
   profiles: prod

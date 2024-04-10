@@ -49,8 +49,8 @@ public class DesignPizzaControllerBrowserTest {
 
     browser.get(homePageUrl());
     clickDesignAPizza();
-    doRegistration("testuser", "testpassword");
-    doLogin("testuser", "testpassword");
+    doRegistration("testuser2", "testpassword2");
+    doLogin("testuser2", "testpassword2");
 
     List<WebElement> ingredientGroups = browser.findElementsByClassName("ingredient-group");
     assertEquals(5, ingredientGroups.size());
