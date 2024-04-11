@@ -12,8 +12,8 @@ public class PizzaInfoContributor implements InfoContributor {
 
     private final PizzaRepository pizzaRepo;
 
-    public PizzaInfoContributor(PizzaRepository tacoRepo) {
-        this.pizzaRepo = tacoRepo;
+    public PizzaInfoContributor(PizzaRepository pizzaRepo) {
+        this.pizzaRepo = pizzaRepo;
     }
 
     @Override
