@@ -1,0 +1,32 @@
+2024-04-11 23:47:22 database: wrong user or password; user: ""
+org.h2.message.DbException: Nieprawidłowy użytkownik/hasło
+Wrong user name or password [28000-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.engine.Engine.openSession(Engine.java:107)
+	at org.h2.engine.Engine.openSession(Engine.java:179)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:157)
+	at org.h2.engine.Engine.createSession(Engine.java:140)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:155)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.h2.jdbc.JdbcSQLException: Nieprawidłowy użytkownik/hasło
+Wrong user name or password [28000-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 9 more
+2024-04-11 23:47:23 database: wrong user or password; user: ""
+org.h2.message.DbException: Nieprawidłowy użytkownik/hasło
+Wrong user name or password [28000-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.engine.Engine.openSession(Engine.java:107)
+	at org.h2.engine.Engine.openSession(Engine.java:179)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:157)
+	at org.h2.engine.Engine.createSession(Engine.java:140)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:155)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.h2.jdbc.JdbcSQLException: Nieprawidłowy użytkownik/hasło
+Wrong user name or password [28000-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 9 more
