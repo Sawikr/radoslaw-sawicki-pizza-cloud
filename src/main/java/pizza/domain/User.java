@@ -1,23 +1,16 @@
 package pizza.domain;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import lombok.*;
+import org.hibernate.Hibernate;
 import javax.persistence.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import java.util.*;
 
 @Entity
 @Data
-@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@ToString
+@NoArgsConstructor(access=AccessLevel.PUBLIC, force=true)
 @RequiredArgsConstructor
-public class User implements UserDetails {
+public class User {
 
   private static final long serialVersionUID = 1L;
 
@@ -34,34 +27,33 @@ public class User implements UserDetails {
   private final String zip;
   private final String phoneNumber;
 
+  public User(String username, String password, String fullname, String street, String city, String state, String zip, String phoneNumber, List<Role> roles) {
+    this.username = username;
+    this.password = password;
+    this.fullname = fullname;
+    this.street = street;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
+    this.phoneNumber = phoneNumber;
+    this.roles = roles;
+  }
+
   @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   @JoinTable(name = "USER_ROLES", joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"),
           inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ID"))
   private List<Role> roles = new ArrayList<>();
 
   @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-    return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+    User user = (User) o;
+    return id != null && Objects.equals(id, user.id);
   }
 
   @Override
-  public boolean isAccountNonExpired() {
-    return true;
+  public int hashCode() {
+       return getClass().hashCode();
   }
-
-  @Override
-  public boolean isAccountNonLocked() {
-    return true;
-  }
-
-  @Override
-  public boolean isCredentialsNonExpired() {
-    return true;
-  }
-
-  @Override
-  public boolean isEnabled() {
-    return true;
-  }
-
 }

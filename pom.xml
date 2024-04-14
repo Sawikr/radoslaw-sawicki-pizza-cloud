@@ -116,6 +116,15 @@
             <artifactId>spring-boot-maven-plugin</artifactId>
             <version>3.2.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId> <!-- Solve issues with thymeleaf -->
+            <version>3.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
