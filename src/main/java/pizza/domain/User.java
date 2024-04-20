@@ -3,12 +3,14 @@ package pizza.domain;
 import lombok.*;
 import org.hibernate.Hibernate;
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
 @ToString
-@NoArgsConstructor(access=AccessLevel.PUBLIC, force=true)
+@NoArgsConstructor(access=AccessLevel.PUBLIC, force = true)
 @RequiredArgsConstructor
 public class User {
 

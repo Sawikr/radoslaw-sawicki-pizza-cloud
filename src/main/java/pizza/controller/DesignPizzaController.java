@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,16 +29,15 @@ import pizza.repository.UserRepository;
 @RequestMapping("/design")
 @SessionAttributes("order")
 public class DesignPizzaController {
+
+  private static Logger logger = LoggerFactory.getLogger(DesignPizzaController.class);
   
   private final IngredientRepository ingredientRepo;
   private final PizzaRepository pizzaRepo;
   private final UserRepository userRepo;
 
   @Autowired
-  public DesignPizzaController(
-        IngredientRepository ingredientRepo, 
-        PizzaRepository pizzaRepo,
-        UserRepository userRepo) {
+  public DesignPizzaController(IngredientRepository ingredientRepo, PizzaRepository pizzaRepo, UserRepository userRepo) {
     this.ingredientRepo = ingredientRepo;
     this.pizzaRepo = pizzaRepo;
     this.userRepo = userRepo;
@@ -66,14 +67,13 @@ public class DesignPizzaController {
     String username = principal.getName();
     User user = userRepo.findByUsername(username);
     model.addAttribute("user", user);
+    logger.info("The logged in user is " + user);
 
     return "design";
   }
 
   @PostMapping
-  public String processDesign(
-          @Valid Pizza pizza, Errors errors,
-          @ModelAttribute Order order) {
+  public String processDesign(@Valid Pizza pizza, Errors errors, @ModelAttribute Order order) {
     
     if (errors.hasErrors()) {
       return "design";
@@ -92,5 +92,4 @@ public class DesignPizzaController {
               .filter(x -> x.getType().equals(type))
               .collect(Collectors.toList());
   }
-  
 }

@@ -45,6 +45,11 @@ info:
   #application-description: ^project.description^
   #application-version: ^project.version^
 
+logging:
+  level:
+    root:
+      info
+
 ---
 spring:
   profiles: prod

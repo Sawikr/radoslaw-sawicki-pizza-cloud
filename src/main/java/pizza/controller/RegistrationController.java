@@ -15,8 +15,7 @@ public class RegistrationController {
   private final UserRepository userRepo;
   private final PasswordEncoder passwordEncoder;
 
-  public RegistrationController(
-      UserRepository userRepo, PasswordEncoder passwordEncoder) {
+  public RegistrationController(UserRepository userRepo, PasswordEncoder passwordEncoder) {
     this.userRepo = userRepo;
     this.passwordEncoder = passwordEncoder;
   }
@@ -31,5 +30,4 @@ public class RegistrationController {
     userRepo.save(form.toUser(passwordEncoder));
     return "redirect:/login";
   }
-
 }

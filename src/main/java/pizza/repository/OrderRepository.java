@@ -10,4 +10,6 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
 
   List<Order> findByUserOrderByPlacedAtDesc(User user, Pageable pageable);
 
+  List<Order> findOrdersByUser(User user);
+
 }

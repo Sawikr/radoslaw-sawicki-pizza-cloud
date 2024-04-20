@@ -1,14 +1,20 @@
 package pizza.security;
 
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import pizza.domain.Role;
 import pizza.domain.User;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Service
 public class RegistrationForm {
+
+  private static Logger logger = LoggerFactory.getLogger(RegistrationForm.class);
 
   private String username;
   private String password;
@@ -37,6 +43,8 @@ public class RegistrationForm {
       roleName = "ROLE_USER";
     }
 
+    logger.info("Logger is working: " + roleName);
+    logger.info("Registered user is " + username);
     Role role = new Role(roleName);
     roles.add(role);
   }
